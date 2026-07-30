@@ -99,7 +99,6 @@ function SparklineGraph({ data, accent }: { data: WpmPoint[]; accent: string }) 
 
 // ─── Achievement Card DOM element (rendered for display) ───────────────────────
 function AchievementCard({ result, userName }: { result: ResultData; userName: string }) {
-  const cfg = MODE_CONFIG[result.mode];
   const acc = result.accuracy;
   const grade = acc >= 98 ? 'S+' : acc >= 95 ? 'S' : acc >= 90 ? 'A' : acc >= 80 ? 'B' : 'C';
 
@@ -485,35 +484,22 @@ const TypingPractice: React.FC = () => {
       .catch(() => {});
   };
 
-  // Download card as image via canvas (html2canvas-free approach using SVG foreignObject)
+  // Download card as image / print view
   const downloadCard = async () => {
     if (!result) return;
     setDownloading(true);
     try {
       const el = document.getElementById('achievement-card-dom');
-      if (!el) { setDownloading(false); return; }
-
-      // Use browser's built-in screenshot via a canvas approach:
-      // We'll use html2canvas if available, else fallback to open in new tab
-      const html2canvas = (await import('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js' as any).catch(() => null));
-      if (html2canvas && html2canvas.default) {
-        const canvas = await html2canvas.default(el, { backgroundColor: null, scale: 2, useCORS: true });
-        const url = canvas.toDataURL('image/png');
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `gotiprep-score-${result.netWpm}wpm.png`;
-        a.click();
-      } else {
-        // Fallback: open print window
+      if (el) {
         const printWin = window.open('', '_blank');
         if (printWin) {
-          printWin.document.write(`<html><body style="margin:0;background:#0f0c29;">${el.outerHTML}</body></html>`);
+          printWin.document.write(`<!DOCTYPE html><html><head><title>GotiPrep Score Card</title><style>body{margin:0;background:#0f0c29;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}</style></head><body>${el.outerHTML}</body></html>`);
           printWin.document.close();
-          printWin.print();
+          setTimeout(() => { printWin.print(); }, 250);
         }
       }
     } catch {
-      // Silent fail
+      /* ignore */
     }
     setDownloading(false);
   };

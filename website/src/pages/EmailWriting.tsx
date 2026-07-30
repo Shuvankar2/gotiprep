@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAdminStore } from '../store/adminStore';
-import { Clock, Send, ChevronLeft, ChevronRight, Shuffle, RefreshCw } from 'lucide-react';
+import { Clock, Send, ChevronLeft, ChevronRight, Shuffle } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 
 type SessionState = 'select' | 'writing' | 'result';

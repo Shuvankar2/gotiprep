@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAdminStore } from '../store/adminStore';
-import { ChevronLeft, ChevronRight, Shuffle, Clock, CheckCircle2, AlertCircle, Eye, EyeOff, BookOpen, Edit3 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Shuffle, Clock, Eye, EyeOff, BookOpen, Edit3 } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 
 const PAGE_SIZE = 10;
@@ -17,7 +17,7 @@ interface MCQQuestion {
 }
 
 // Generate 3 detailed 2-mark assessment MCQs per passage based on topic/content
-const getPassageMCQs = (title: string, content: string, category: string): MCQQuestion[] => {
+const getPassageMCQs = (title: string, _content: string, category: string): MCQQuestion[] => {
   if (category === 'tech' || title.toLowerCase().includes('digital') || title.toLowerCase().includes('intelligence')) {
     return [
       {

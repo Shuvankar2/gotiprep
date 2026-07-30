@@ -14,7 +14,7 @@ Only the latest version of **GotiPrep** on the `main` branch is actively support
 We take the security of GotiPrep seriously. If you discover a security vulnerability, please follow these steps:
 
 1. **Do NOT open a public GitHub issue** for security vulnerabilities.
-2. Email your findings privately to **security@gotiprep.org** (or contact the maintainers directly).
+2. Email your findings privately to **shuvankar345@gmail.com**.
 3. Include detailed steps to reproduce the issue, potential impact, and any proposed fixes.
 
 ### Response Expectations

@@ -2,11 +2,7 @@
   "name": "gotiprep-root",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "website"
-  ],
   "scripts": {
-    "build": "cd website && npm run build",
-    "dev": "cd website && npm run dev"
+    "build": "cd website && npm install && npm run build"
   }
 }

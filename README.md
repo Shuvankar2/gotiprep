@@ -1,5 +1,6 @@
 # GotiPrep — Open-Source Fast-Track Exam Preparation Platform
 
+[![Live App](https://img.shields.io/badge/Live_App-gotiprep.shuvankar.qzz.io-0054fa?style=for-the-badge&logo=vercel)](https://gotiprep.shuvankar.qzz.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)
@@ -7,13 +8,15 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0-purple)](https://vitejs.dev/)
 
 > **GotiPrep** is an open-source assessment-grade examination preparation platform tailored for Indian competitive exams including **TCS NQT, Banking (IBPS, RBI), SSC (CGL, CHSL), and Government typing tests**.
+> 
+> 🌐 **Live Web Application**: [https://gotiprep.shuvankar.qzz.io](https://gotiprep.shuvankar.qzz.io)
 
 ---
 
 ## 🌟 Features
 
 - **Typing Arena**: Real-time WPM, Net/Gross accuracy calculator, tab-switch anti-cheat, 3 test modes (Practice, Exam Simulation, Challenge Mode), and customizable durations.
-- **Instagram Achievement Poster**: Dynamic, high-resolution shareable performance card with customizable user name and direct download/sharing options.
+- **Instagram Achievement Poster**: Dynamic, high-resolution shareable performance card with customizable user name, live domain link (`gotiprep.shuvankar.qzz.io`), and direct download/sharing options.
 - **Unseen Passage Practice**: 30-second reading phase + 90-second context writing phase with semantic meaning evaluation, alongside 2-Mark detailed assessment MCQs.
 - **Sentence Cloze Practice**: Fill-in-the-blanks grammar, vocabulary, and contextual cloze exercises with instant feedback.
 - **Email Drafting**: 9-minute timed exam simulator requiring 100+ words, checklist verification, and split-flap countdown timer.
@@ -52,7 +55,7 @@ GotiPrep/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/GotiPrep.git
+   git clone https://github.com/Shuvankar2/gotiprep.git
    cd GotiPrep/website
    ```
 

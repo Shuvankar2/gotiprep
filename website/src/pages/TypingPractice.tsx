@@ -197,7 +197,7 @@ function AchievementCard({ result, userName }: { result: ResultData; userName: s
 
       {/* Footer */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', zIndex: 1 }}>
-        <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.25)' }}>gotiprep.vercel.app</div>
+        <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.25)' }}>gotiprep.shuvankar.qzz.io</div>
         <div style={{
           fontSize: '0.55rem', fontWeight: 700,
           background: `linear-gradient(90deg, ${pal.from}, ${pal.to})`,
@@ -475,7 +475,7 @@ const TypingPractice: React.FC = () => {
       userName.trim() ? `👤 By: ${userName.trim()}` : '',
       ``,
       `Preparing for TCS NQT, Banking & SSC typing tests.`,
-      `🔗 Practice free: gotiprep.vercel.app`,
+      `🔗 Practice free: gotiprep.shuvankar.qzz.io`,
       ``,
       `#GotiPrep #TypingTest #TCSNQT #BankingExam #SSCTyping #ExamPrep #GotiPrepChallenge`,
     ].filter(l => l !== null).join('\n');
@@ -507,8 +507,8 @@ const TypingPractice: React.FC = () => {
   // Share links
   const buildShareLinks = (r: ResultData) => {
     const name = userName.trim() ? ` by ${userName.trim()}` : '';
-    const text = encodeURIComponent(`🏆 I scored ${r.netWpm} Net WPM with ${r.accuracy}% accuracy${name} on GotiPrep! Try it: https://gotiprep.vercel.app #GotiPrep #TypingTest #TCSNQT`);
-    const url  = encodeURIComponent('https://gotiprep.vercel.app');
+    const text = encodeURIComponent(`🏆 I scored ${r.netWpm} Net WPM with ${r.accuracy}% accuracy${name} on GotiPrep! Try it: https://gotiprep.shuvankar.qzz.io #GotiPrep #TypingTest #TCSNQT`);
+    const url  = encodeURIComponent('https://gotiprep.shuvankar.qzz.io');
     return {
       whatsapp:  `https://wa.me/?text=${text}`,
       twitter:   `https://twitter.com/intent/tweet?text=${text}`,

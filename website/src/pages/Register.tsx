@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, UserPlus, AlertCircle, CheckCircle } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
+import SEO from '../components/SEO';
 
 const Register: React.FC = () => {
   const [name, setName] = useState('');
@@ -45,6 +46,11 @@ const Register: React.FC = () => {
 
   return (
     <div className="page-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '2rem 1rem' }}>
+      <SEO
+        title="Create Free GotiPrep Account — Exam Practice Hub"
+        description="Sign up for GotiPrep free to practice TCS NQT, Banking, and SSC CGL/CHSL typing tests, unseen passages, and email drafting."
+        path="/register"
+      />
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 0 }}>
         <div style={{ position: 'absolute', width: 500, height: 500, top: -200, right: -200, borderRadius: '50%', background: 'radial-gradient(circle, rgba(102,34,73,0.3) 0%, transparent 70%)', filter: 'blur(80px)' }} />
         <div style={{ position: 'absolute', width: 400, height: 400, bottom: -100, left: -100, borderRadius: '50%', background: 'radial-gradient(circle, rgba(68,23,78,0.3) 0%, transparent 70%)', filter: 'blur(80px)' }} />

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useAdminStore, ADMIN_CREDENTIALS } from '../store/adminStore';
 import type { Passage } from '../data/passages';
+import SEO from '../components/SEO';
 import type { SentenceItem } from '../data/sentences';
 import type { EmailPrompt } from '../data/emailPrompts';
 import type { TypingPassage } from '../data/typingPassages';
@@ -55,6 +56,12 @@ const Admin: React.FC = () => {
 
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)', padding: '2rem 1rem' }}>
+        <SEO
+          title="GotiPrep Admin Portal"
+          description="GotiPrep system administration portal."
+          path="/admin"
+          noindex={true}
+        />
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', width: 500, height: 500, top: -200, left: '50%', transform: 'translateX(-50%)', borderRadius: '50%', background: 'radial-gradient(circle, rgba(163,64,84,0.3) 0%, transparent 70%)', filter: 'blur(80px)' }} />
         </div>

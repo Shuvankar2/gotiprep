@@ -5,11 +5,12 @@ interface SEOProps {
   description: string;
   keywords?: string;
   path?: string;
+  noindex?: boolean;
 }
 
 const DOMAIN = 'https://gotiprep.shuvankar.qzz.io';
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = '' }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = '', noindex = false }) => {
   useEffect(() => {
     // 1. Update Document Title
     document.title = title;
@@ -25,15 +26,24 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = '' }) =>
       el.setAttribute('content', contentVal);
     };
 
-    // 3. Update primary description & keywords
+    // 3. Update primary description, keywords & robots indexing
     setMetaTag('meta[name="description"]', 'name', 'description', description);
     if (keywords) {
       setMetaTag('meta[name="keywords"]', 'name', 'keywords', keywords);
     }
 
-    // 4. Update Open Graph tags
+    // Google Search Console Robots Directives
+    const robotsVal = noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+    setMetaTag('meta[name="robots"]', 'name', 'robots', robotsVal);
+    setMetaTag('meta[name="googlebot"]', 'name', 'googlebot', robotsVal);
+
+    // 4. Update Open Graph & Twitter tags
     setMetaTag('meta[property="og:title"]', 'property', 'og:title', title);
     setMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
+    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', title);
+    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', description);
 
     const fullUrl = `${DOMAIN}${path.startsWith('/') ? path : `/${path}`}`;
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', fullUrl);
@@ -48,7 +58,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, path = '' }) =>
     }
     canonical.setAttribute('href', fullUrl);
 
-  }, [title, description, keywords, path]);
+  }, [title, description, keywords, path, noindex]);
 
   return null;
 };

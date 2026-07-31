@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { Keyboard, BookOpen, PenTool, MessageSquare, Trophy, LogOut } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Dashboard: React.FC = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
@@ -16,6 +17,12 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="page-container">
+      <SEO
+        title="User Dashboard & Exam Progress Analytics | GotiPrep"
+        description="Track your Typing WPM, passage reading accuracy, cloze test scores, and email writing performance analytics on GotiPrep."
+        keywords="exam progress analytics, typing WPM dashboard, GotiPrep user profile"
+        path="/dashboard"
+      />
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Welcome */}

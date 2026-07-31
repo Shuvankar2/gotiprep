@@ -181,19 +181,23 @@ const Footer: React.FC = () => {
           </span>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-            {['TERMS OF SERVICE', 'PRIVACY NOTICE'].map((item, i) => (
-              <React.Fragment key={item}>
-                {i > 0 && <span style={{ color: 'var(--border-color)', fontSize: '0.75rem' }}>|</span>}
-                <a href="#" style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-                  textTransform: 'uppercase', letterSpacing: '0.08em',
-                  color: 'var(--text-muted)', textDecoration: 'none',
-                  transition: 'color 0.2s ease',
-                }}>
-                  {item}
-                </a>
-              </React.Fragment>
-            ))}
+            <Link to="/terms" style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+              textTransform: 'uppercase', letterSpacing: '0.08em',
+              color: 'var(--text-muted)', textDecoration: 'none',
+              transition: 'color 0.2s ease',
+            }}>
+              TERMS OF SERVICE
+            </Link>
+            <span style={{ color: 'var(--border-color)', fontSize: '0.75rem' }}>|</span>
+            <Link to="/privacy" style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+              textTransform: 'uppercase', letterSpacing: '0.08em',
+              color: 'var(--text-muted)', textDecoration: 'none',
+              transition: 'color 0.2s ease',
+            }}>
+              PRIVACY NOTICE
+            </Link>
           </div>
         </div>
       </div>

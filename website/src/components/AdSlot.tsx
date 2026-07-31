@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface AdSlotProps {
   type: 'banner' | 'sidebar' | 'leaderboard' | 'rectangle';
   className?: string;
   style?: React.CSSProperties;
   slotId?: string;
+  adSlotCode?: string; // Optional custom AdSense slot unit ID
 }
+
+const PUBLISHER_ID = 'ca-pub-3063786907196879';
 
 const dimensions = {
   banner: { width: '100%', height: 90 },
@@ -14,13 +17,27 @@ const dimensions = {
   rectangle: { width: 336, height: 280 },
 };
 
-/**
- * AdSlot component — placeholder for Google AdSense units.
- * Replace the inner div with actual AdSense <ins> tags when going live.
- * All ad slots are data-attribute tagged for easy identification.
- */
-const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotId }) => {
+declare global {
+  interface Window {
+    adsbygoogle?: any[];
+  }
+}
+
+const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotId, adSlotCode }) => {
   const dim = dimensions[type];
+  const adRef = useRef<HTMLModElement | null>(null);
+  const pushedRef = useRef(false);
+
+  useEffect(() => {
+    try {
+      if (window.adsbygoogle && adRef.current && !pushedRef.current) {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushedRef.current = true;
+      }
+    } catch {
+      /* ignore adblocker errors gracefully */
+    }
+  }, []);
 
   return (
     <div
@@ -29,32 +46,25 @@ const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotI
       data-ad-type={type}
       style={{
         width: dim.width,
-        height: dim.height,
+        minHeight: dim.height,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        position: 'relative',
         ...style,
       }}
     >
-      {/* 
-        === ADSENSE INTEGRATION POINT ===
-        Replace this div content with actual AdSense code:
-        
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-XXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        
-        And add to index.html <head>:
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
-      */}
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: '0.7rem', opacity: 0.5, marginBottom: 2 }}>Advertisement</div>
-        <div style={{ fontSize: '0.65rem', opacity: 0.35 }}>{dim.width}×{dim.height}</div>
-      </div>
-      <span className="ad-slot-label">Ad</span>
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%', minHeight: dim.height }}
+        data-ad-client={PUBLISHER_ID}
+        data-ad-slot={adSlotCode || '1234567890'}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <span className="ad-slot-label" style={{ position: 'absolute', top: 4, right: 8, fontSize: '0.6rem', opacity: 0.4 }}>Ad</span>
     </div>
   );
 };

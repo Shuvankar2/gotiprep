@@ -1,64 +1,58 @@
 import React, { useState } from 'react';
-import { useAdminStore } from '../store/adminStore';
-import { CheckCircle, XCircle, RotateCcw, ChevronRight, ArrowRight } from 'lucide-react';
-import AdSlot from '../components/AdSlot';
+import { RotateCcw, CheckCircle2, XCircle, ArrowRight, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
+import AdSlot from '../components/AdSlot';
+import { sentenceItems, SentenceItem } from '../data/sentences';
 
 type SessionState = 'intro' | 'practice' | 'result';
 
-interface Answer { id: string; userAnswer: string; correct: boolean; }
+const categoryColors: Record<string, string> = {
+  all: '#ed9e59',
+  grammar: '#4f8cff',
+  vocabulary: '#34d399',
+  idioms: '#b06fd6',
+  banking: '#f43f5e',
+};
 
 const SentenceCompletion: React.FC = () => {
-  const { sentences } = useAdminStore();
-  const [category, setCategory] = useState<string>('all');
   const [sessionState, setSessionState] = useState<SessionState>('intro');
-  const [sessionItems, setSessionItems] = useState(sentences.slice(0, 10));
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [userInput, setUserInput] = useState('');
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+  const [category, setCategory] = useState<string>('all');
+  const [sessionItems, setSessionItems] = useState<SentenceItem[]>([]);
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+  const [currentInput, setCurrentInput] = useState<string>('');
+  const [score, setScore] = useState<number>(0);
 
-  const categories = ['all', 'grammar', 'vocabulary', 'idioms', 'banking', 'general'];
-  const categoryColors: Record<string, string> = {
-    grammar: '#34d399', vocabulary: '#b06fd6', idioms: '#ED9E59', banking: '#60a5fa', general: '#f87171', all: '#E5C2C2'
-  };
+  const categories = ['all', 'grammar', 'vocabulary', 'idioms', 'banking'];
 
   const startSession = () => {
-    const pool = category === 'all' ? sentences : sentences.filter((s) => s.category === category);
+    const pool = category === 'all'
+      ? [...sentenceItems]
+      : sentenceItems.filter((s) => s.category === category);
     const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 10);
     setSessionItems(shuffled);
     setCurrentIdx(0);
-    setAnswers([]);
-    setUserInput('');
-    setShowFeedback(false);
+    setUserAnswers([]);
+    setCurrentInput('');
+    setScore(0);
     setSessionState('practice');
   };
 
-  const currentItem = sessionItems[currentIdx];
+  const handleNext = () => {
+    const isCorrect = currentInput.trim().toLowerCase() === currentItem.blank.toLowerCase();
+    const newAnswers = [...userAnswers, currentInput.trim()];
+    setUserAnswers(newAnswers);
+    if (isCorrect) setScore((s) => s + 1);
 
-  const checkAnswer = () => {
-    if (!currentItem) return;
-    const trimmed = userInput.trim().toLowerCase();
-    const correct = trimmed === currentItem.blank.toLowerCase() ||
-      trimmed.includes(currentItem.blank.toLowerCase());
-    setIsCorrect(correct);
-    setShowFeedback(true);
-    setAnswers((prev) => [...prev, { id: currentItem.id, userAnswer: userInput, correct }]);
-  };
-
-  const nextQuestion = () => {
-    setUserInput('');
-    setShowFeedback(false);
-    if (currentIdx + 1 >= sessionItems.length) {
-      setSessionState('result');
-    } else {
+    if (currentIdx + 1 < sessionItems.length) {
       setCurrentIdx((i) => i + 1);
+      setCurrentInput('');
+    } else {
+      setSessionState('result');
     }
   };
 
-  const totalCorrect = answers.filter((a) => a.correct).length;
-  const progress = sessionItems.length > 0 ? ((currentIdx) / sessionItems.length) * 100 : 0;
+  const currentItem = sessionItems[currentIdx];
 
   return (
     <div className="page-container">
@@ -75,6 +69,9 @@ const SentenceCompletion: React.FC = () => {
       <div className="layout-with-side-ads">
         <AdSlot type="vertical-left" />
         <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
+
+        {/* Top Banner Ad above Heading */}
+        <AdSlot type="banner" slotId="sentences-top-banner-ad" style={{ marginBottom: '1.5rem' }} />
 
         {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
@@ -115,7 +112,7 @@ const SentenceCompletion: React.FC = () => {
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Questions</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: '#b06fd6' }}>{(category === 'all' ? sentences : sentences.filter((s) => s.category === category)).length}</div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: '#b06fd6' }}>{(category === 'all' ? sentenceItems : sentenceItems.filter((s) => s.category === category)).length}</div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>In Pool</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
@@ -135,14 +132,18 @@ const SentenceCompletion: React.FC = () => {
             {/* Sidebar */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div className="card-glow" style={{ padding: '1.25rem' }}>
-                <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--goti-amber)', marginBottom: '10px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>📝 How it works</h4>
+                <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--goti-amber)', marginBottom: '10px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>📝 Assessment Rules</h4>
                 {['Type the missing word to complete each sentence', 'Instant feedback after each answer', 'Detailed explanation shown for every item', 'Score and review at the end of the session'].map((t) => (
                   <p key={t} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '8px', display: 'flex', gap: '8px', lineHeight: 1.5 }}>
                     <span style={{ color: 'var(--goti-amber)', flexShrink: 0 }}>→</span> {t}
                   </p>
                 ))}
+                {/* 2 Square Ads directly below Assessment Rules */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+                  <AdSlot type="rectangle" slotId="sentences-rule-ad-1" />
+                  <AdSlot type="rectangle" slotId="sentences-rule-ad-2" />
+                </div>
               </div>
-              <AdSlot type="sidebar" slotId="sentences-sidebar-ad" />
             </div>
           </div>
         )}
@@ -158,79 +159,55 @@ const SentenceCompletion: React.FC = () => {
               </span>
             </div>
             <div className="progress-bar" style={{ marginBottom: '8px' }}>
-              <div className="progress-fill" style={{ width: `${progress}%` }} />
+              <div className="progress-fill" style={{ width: `${((currentIdx + 1) / sessionItems.length) * 100}%` }} />
             </div>
 
             {/* Question Card */}
             <div className="card-glow" style={{ padding: '2rem' }}>
-              <div style={{ marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
-                  Fill in the blank
-                </div>
-                <p style={{
-                  fontFamily: 'var(--font-body)', fontSize: '1.15rem', lineHeight: 1.8,
-                  color: 'var(--text-primary)', fontWeight: 500,
-                  letterSpacing: '0.01em',
-                }}>
-                  {currentItem.sentence.split('_____').map((part, idx) => (
-                    <React.Fragment key={idx}>
-                      {part}
-                      {idx < currentItem.sentence.split('_____').length - 1 && (
-                        <span style={{
-                          display: 'inline-block', minWidth: '100px', borderBottom: `2px solid var(--goti-amber)`,
-                          margin: '0 4px', color: showFeedback ? (isCorrect ? '#34d399' : '#f87171') : 'var(--goti-amber)',
-                          textShadow: showFeedback ? '' : '0 0 10px rgba(237,158,89,0.4)',
-                          fontFamily: 'var(--font-mono)',
-                        }}>
-                          {showFeedback ? (isCorrect ? userInput : currentItem.blank) : (userInput || '\u00A0')}
-                        </span>
-                      )}
-                    </React.Fragment>
-                  ))}
-                </p>
+              <div style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+                {currentItem.sentence.split('___').map((part, i, arr) => (
+                  <React.Fragment key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <span style={{
+                        display: 'inline-block', borderBottom: '2px solid var(--goti-amber)',
+                        minWidth: '90px', padding: '0 8px', textAlign: 'center',
+                        fontWeight: 700, color: 'var(--goti-amber)', margin: '0 4px',
+                      }}>
+                        {currentInput || '___'}
+                      </span>
+                    )}
+                  </React.Fragment>
+                ))}
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>Hint:</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>{currentItem.hint}</div>
+              {/* Input & Submit */}
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <input
+                  type="text"
+                  value={currentInput}
+                  onChange={(e) => setCurrentInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && currentInput.trim()) handleNext(); }}
+                  placeholder="Type missing word..."
+                  className="typing-input"
+                  style={{ flex: 1, minWidth: '200px' }}
+                  autoFocus
+                />
+                <button
+                  className="btn-primary"
+                  onClick={handleNext}
+                  disabled={!currentInput.trim()}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {currentIdx + 1 === sessionItems.length ? 'Finish' : 'Next'} <ArrowRight size={16} />
+                  </span>
+                </button>
               </div>
 
-              {!showFeedback && (
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <input
-                    autoFocus
-                    className="form-input"
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    onKeyDown={(e) => { if (e.key === 'Enter' && userInput.trim()) checkAnswer(); }}
-                    placeholder="Type your answer…"
-                    style={{ flex: 1, fontFamily: 'var(--font-mono)' }}
-                  />
-                  <button className="btn-primary" onClick={checkAnswer} disabled={!userInput.trim()}>
-                    <span>Check</span>
-                  </button>
-                </div>
-              )}
-
-              {/* Feedback */}
-              {showFeedback && (
-                <div className="animate-fade-in" style={{
-                  padding: '1.25rem', borderRadius: '12px', marginTop: '0',
-                  background: isCorrect ? 'rgba(52,211,153,0.1)' : 'rgba(248,113,113,0.1)',
-                  border: `1px solid ${isCorrect ? 'rgba(52,211,153,0.3)' : 'rgba(248,113,113,0.3)'}`,
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                    {isCorrect ? <CheckCircle size={20} style={{ color: '#34d399' }} /> : <XCircle size={20} style={{ color: '#f87171' }} />}
-                    <span style={{ fontWeight: 700, color: isCorrect ? '#34d399' : '#f87171', fontSize: '1rem' }}>
-                      {isCorrect ? 'Correct! 🎉' : `Incorrect. The answer is "${currentItem.blank}"`}
-                    </span>
-                  </div>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-                    💡 {currentItem.explanation}
-                  </p>
-                  <button className="btn-primary" onClick={nextQuestion} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    {currentIdx + 1 >= sessionItems.length ? 'See Results' : 'Next Question'} <ChevronRight size={16} />
-                  </button>
+              {/* Explanation note */}
+              {currentItem.hint && (
+                <div style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <BookOpen size={14} /> Hint: {currentItem.hint}
                 </div>
               )}
             </div>
@@ -239,43 +216,43 @@ const SentenceCompletion: React.FC = () => {
 
         {/* Result */}
         {sessionState === 'result' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <div className="result-card animate-fade-in">
-              <h2 style={{ fontSize: '1.8rem', textAlign: 'center', marginBottom: '1.5rem' }}>
-                Session Complete! <span className="glow-text-amber">🏆</span>
-              </h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '1.5rem' }}>
-                {[
-                  { label: 'Score', value: `${totalCorrect}/${sessionItems.length}`, accent: '#ED9E59' },
-                  { label: 'Correct', value: totalCorrect, accent: '#34d399' },
-                  { label: 'Incorrect', value: sessionItems.length - totalCorrect, accent: '#f87171' },
-                ].map((m) => (
-                  <div key={m.label} className="metric-box" style={{ background: 'rgba(13,11,26,0.5)', border: '1px solid var(--border-color)', borderRadius: '10px', padding: '1.25rem', textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: m.accent, lineHeight: 1 }}>{m.value}</div>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 6 }}>{m.label}</div>
-                  </div>
-                ))}
+          <div>
+            <div className="card-glow" style={{ padding: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>
+              <div style={{ fontSize: '3rem', fontWeight: 900, color: 'var(--goti-amber)', marginBottom: '8px' }}>
+                {score} / {sessionItems.length}
               </div>
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '8px' }}>Session Complete!</h2>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                {score >= 8 ? '🎉 Outstanding vocabulary and grammar control!' : score >= 5 ? '👍 Good attempt! Review items below to improve.' : '💪 Keep practicing! Regular cloze tests build accuracy.'}
+              </p>
 
-              {/* Per-question review */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <h4 style={{ fontWeight: 700, marginBottom: '12px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Review:</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '300px', overflowY: 'auto' }}>
-                  {sessionItems.map((item, i) => {
-                    const ans = answers[i];
+              {/* Review List */}
+              <div style={{ textAlign: 'left', marginTop: '2rem' }}>
+                <h4 style={{ fontWeight: 700, marginBottom: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '8px' }}>Review Answers</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {sessionItems.map((item, idx) => {
+                    const userAns = userAnswers[idx] || '';
+                    const isCorrect = userAns.toLowerCase() === item.correctWord.toLowerCase();
                     return (
                       <div key={item.id} style={{
-                        padding: '10px 14px', borderRadius: '8px',
-                        background: ans?.correct ? 'rgba(52,211,153,0.08)' : 'rgba(248,113,113,0.08)',
-                        border: `1px solid ${ans?.correct ? 'rgba(52,211,153,0.2)' : 'rgba(248,113,113,0.2)'}`,
-                        display: 'flex', alignItems: 'center', gap: '10px',
+                        padding: '1rem', borderRadius: '10px',
+                        background: isCorrect ? 'rgba(52,211,153,0.05)' : 'rgba(244,63,94,0.05)',
+                        border: `1px solid ${isCorrect ? 'rgba(52,211,153,0.2)' : 'rgba(244,63,94,0.2)'}`,
                       }}>
-                        {ans?.correct ? <CheckCircle size={14} style={{ color: '#34d399', flexShrink: 0 }} /> : <XCircle size={14} style={{ color: '#f87171', flexShrink: 0 }} />}
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                            {item.sentence.replace('_____', `[${item.blank}]`)}
-                          </span>
-                          {!ans?.correct && <span style={{ fontSize: '0.75rem', color: '#f87171' }}>Your answer: {ans?.userAnswer || '(blank)'}</span>}
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '6px' }}>
+                          {isCorrect ? <CheckCircle2 size={18} style={{ color: '#34d399', flexShrink: 0, marginTop: '2px' }} /> : <XCircle size={18} style={{ color: '#f43f5e', flexShrink: 0, marginTop: '2px' }} />}
+                          <div>
+                            <div style={{ fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '4px' }}>{item.sentence.replace('___', `[${item.blank}]`)}</div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                              Your answer: <span style={{ color: isCorrect ? '#34d399' : '#f43f5e', fontWeight: 600 }}>{userAns || '(blank)'}</span>
+                              {!isCorrect && <span> | Correct: <span style={{ color: '#34d399', fontWeight: 600 }}>{item.blank}</span></span>}
+                            </div>
+                            {item.explanation && (
+                              <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                                💡 {item.explanation}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     );
@@ -292,6 +269,9 @@ const SentenceCompletion: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Bottom Banner Ad before Footer */}
+        <AdSlot type="banner" slotId="sentences-bottom-banner-ad" style={{ marginTop: '2.5rem' }} />
         </div>
         <AdSlot type="vertical-right" />
       </div>

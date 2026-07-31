@@ -536,6 +536,9 @@ const TypingPractice: React.FC = () => {
         <AdSlot type="vertical-left" />
         <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
 
+        {/* Banner Ad above Heading */}
+        <AdSlot type="banner" slotId="typing-top-banner-ad" style={{ marginBottom: '1.5rem' }} />
+
         {/* Page header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <h1 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '8px' }}>
@@ -1065,6 +1068,8 @@ const TypingPractice: React.FC = () => {
           );
         })()}
 
+        {/* Bottom Banner Ad before Footer */}
+        <AdSlot type="banner" slotId="typing-bottom-banner-ad" style={{ marginTop: '2.5rem' }} />
         </div>
         <AdSlot type="vertical-right" />
       </div>

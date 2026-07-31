@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 
+import AdSlot from './AdSlot';
+
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
@@ -12,12 +14,9 @@ const Footer: React.FC = () => {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Ad slot */}
+      {/* Footer Global Ad Slot (All Views: Mobile & Desktop) */}
       <div style={{ padding: '1.5rem 2rem 0', maxWidth: '1200px', margin: '0 auto' }}>
-        <div className="ad-slot ad-slot-leaderboard">
-          <span>Advertisement</span>
-          <span className="ad-slot-label">Ad</span>
-        </div>
+        <AdSlot type="banner" slotId="footer-global-ad" />
       </div>
 
       {/* Giant wordmark background — exactly like ApeChain "APECHAIN" in the footer */}

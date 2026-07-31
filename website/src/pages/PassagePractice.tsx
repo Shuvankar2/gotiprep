@@ -364,6 +364,9 @@ const PassagePractice: React.FC = () => {
         <AdSlot type="vertical-left" />
         <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
 
+        {/* Banner Ad above Heading */}
+        <AdSlot type="banner" slotId="passage-top-banner-ad" style={{ marginBottom: '1.5rem' }} />
+
         {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <h1 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '8px' }}>
@@ -863,15 +866,22 @@ const PassagePractice: React.FC = () => {
               ].map((tip) => (
                 <p key={tip} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '8px', lineHeight: 1.5 }}>{tip}</p>
               ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
+              {/* 2 Square Ads directly below Assessment Rules */}
+              <AdSlot type="rectangle" slotId="passage-rule-ad-1" />
+              <AdSlot type="rectangle" slotId="passage-rule-ad-2" />
             </div>
-            <AdSlot type="sidebar" slotId="passage-sidebar-ad" />
           </div>
         </div>
-        </div>
-        <AdSlot type="vertical-right" />
       </div>
+
+      {/* Bottom Banner Ad before Footer */}
+      <AdSlot type="banner" slotId="passage-bottom-banner-ad" style={{ marginTop: '2.5rem' }} />
+      </div>
+      <AdSlot type="vertical-right" />
     </div>
-  );
+  </div>
+);
 };
 
 export default PassagePractice;

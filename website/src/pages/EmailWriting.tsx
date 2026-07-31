@@ -97,6 +97,9 @@ const EmailWriting: React.FC = () => {
         <AdSlot type="vertical-left" />
         <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
 
+        {/* Banner Ad above Heading */}
+        <AdSlot type="banner" slotId="email-top-banner-ad" style={{ marginBottom: '1.5rem' }} />
+
         {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <h1 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '8px' }}>
@@ -230,14 +233,18 @@ const EmailWriting: React.FC = () => {
               {/* Sidebar */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div className="card-glow" style={{ padding: '1.25rem' }}>
-                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--goti-amber)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>✉️ How it works</h4>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--goti-amber)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>✉️ Assessment Rules</h4>
                   {['9-minute countdown timer', '100 words minimum required', 'Professional email format recommended', 'Address all key points in the prompt', 'Subject line + greeting + body + closing'].map((t) => (
                     <p key={t} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '8px', display: 'flex', gap: '8px', lineHeight: 1.5 }}>
                       <span style={{ color: 'var(--goti-amber)', flexShrink: 0 }}>→</span> {t}
                     </p>
                   ))}
+                  {/* 2 Square Ads directly below Assessment Rules */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+                    <AdSlot type="rectangle" slotId="email-rule-ad-1" />
+                    <AdSlot type="rectangle" slotId="email-rule-ad-2" />
+                  </div>
                 </div>
-                <AdSlot type="sidebar" slotId="email-sidebar-ad" />
               </div>
             </div>
           </div>
@@ -415,6 +422,8 @@ const EmailWriting: React.FC = () => {
           </div>
         )}
 
+        {/* Bottom Banner Ad before Footer */}
+        <AdSlot type="banner" slotId="email-bottom-banner-ad" style={{ marginTop: '2.5rem' }} />
         </div>
         <AdSlot type="vertical-right" />
       </div>

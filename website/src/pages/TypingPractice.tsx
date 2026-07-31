@@ -528,6 +528,13 @@ const TypingPractice: React.FC = () => {
         keywords="SSC CHSL typing test practice online free, TCS NQT typing test, IBPS typing speed test, net WPM calculator, typing arena, GotiPrep"
         path="/typing"
       />
+
+      {/* Desktop Vertical Skyscraper Gutter Ads */}
+      <AdSlot type="vertical-left" />
+      <AdSlot type="vertical-right" />
+
+      {/* Mobile Sticky Bottom Bar Ad */}
+      <AdSlot type="mobile-sticky" />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Page header */}

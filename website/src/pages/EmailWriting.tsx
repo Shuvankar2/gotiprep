@@ -89,6 +89,13 @@ const EmailWriting: React.FC = () => {
         keywords="TCS NQT email writing practice, TCS email writing simulator online free, corporate email drafting test, timed email practice, GotiPrep"
         path="/email"
       />
+
+      {/* Desktop Vertical Skyscraper Gutter Ads */}
+      <AdSlot type="vertical-left" />
+      <AdSlot type="vertical-right" />
+
+      {/* Mobile Sticky Bottom Bar Ad */}
+      <AdSlot type="mobile-sticky" />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

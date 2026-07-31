@@ -356,6 +356,13 @@ const PassagePractice: React.FC = () => {
         keywords="IBPS PO unseen passage practice, SSC CGL reading comprehension MCQs, 2-mark assessment questions, passage practice online, GotiPrep"
         path="/passage"
       />
+
+      {/* Desktop Vertical Skyscraper Gutter Ads */}
+      <AdSlot type="vertical-left" />
+      <AdSlot type="vertical-right" />
+
+      {/* Mobile Sticky Bottom Bar Ad */}
+      <AdSlot type="mobile-sticky" />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

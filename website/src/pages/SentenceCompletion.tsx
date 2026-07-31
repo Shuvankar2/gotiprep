@@ -68,6 +68,13 @@ const SentenceCompletion: React.FC = () => {
         keywords="sentence completion practice, cloze test practice online free, IBPS PO cloze test, SSC CGL English vocabulary, GotiPrep"
         path="/sentences"
       />
+
+      {/* Desktop Vertical Skyscraper Gutter Ads */}
+      <AdSlot type="vertical-left" />
+      <AdSlot type="vertical-right" />
+
+      {/* Mobile Sticky Bottom Bar Ad */}
+      <AdSlot type="mobile-sticky" />
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

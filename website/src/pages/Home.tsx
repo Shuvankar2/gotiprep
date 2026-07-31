@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import AdSlot from '../components/AdSlot';
 
 // ─── RAF Lerp 3D Tilt Hook ─────────────────────────────────────────────────────
 function useSmoothTilt(maxDeg = 8, perspective = 1000) {
@@ -300,6 +301,13 @@ const Home: React.FC = () => {
         keywords="typing practice, TCS NQT, IBPS PO, SSC CGL typing test, SSC CHSL typing test, email writing practice, unseen passage practice, sentence completion, WPM test, GotiPrep, SUVNKR"
         path="/"
       />
+
+      {/* Desktop Vertical Skyscraper Gutter Ads */}
+      <AdSlot type="vertical-left" />
+      <AdSlot type="vertical-right" />
+
+      {/* Mobile Sticky Bottom Bar Ad */}
+      <AdSlot type="mobile-sticky" />
 
       {/* ── SECTION A: FULL-WIDTH 3D COVERFLOW HERO ─── */}
       <section style={{
@@ -623,6 +631,11 @@ const Home: React.FC = () => {
         `}</style>
       </section>
 
+      {/* Leaderboard Ad below Hero & above Spotlight Heading */}
+      <div style={{ maxWidth: '1100px', margin: '2rem auto', padding: '0 1rem' }}>
+        <AdSlot type="leaderboard" slotId="home-hero-bottom-ad" />
+      </div>
+
       {/* ── SECTION B: SPOTLIGHT ─────────────────────────── */}
       <section className="reveal" style={{
         padding: '7rem 0', borderBottom: '1px solid var(--border-color)',
@@ -832,6 +845,11 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer Banner Ad */}
+      <div style={{ maxWidth: '1100px', margin: '2rem auto', padding: '0 1rem' }}>
+        <AdSlot type="banner" slotId="home-footer-ad" />
+      </div>
 
       {/* ── SECTION D: SCROLLING TICKER ──────────────────── */}
       <section style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', overflow: 'hidden', padding: '20px 0', background: 'var(--bg-primary)' }}>

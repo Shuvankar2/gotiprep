@@ -54,30 +54,25 @@ const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotI
 
   if (type === 'mobile-sticky' && closedMobile) return null;
 
-  // Desktop Vertical Skyscraper Gutter Ads
+  // Non-Overlapping Desktop Vertical Skyscraper Gutter Ads
   if (type === 'vertical-left' || type === 'vertical-right') {
-    const isLeft = type === 'vertical-left';
     return (
       <div
-        className={`ad-slot-vertical ${className} hidden-mobile`}
+        className={`ad-slot-vertical ${className} hidden-gutter-mobile`}
         style={{
-          position: 'fixed',
-          top: '120px',
-          [isLeft ? 'left' : 'right']: '12px',
+          position: 'relative',
           width: '160px',
-          height: '600px',
-          zIndex: 90,
-          background: 'rgba(15, 12, 35, 0.75)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          minHeight: '600px',
+          background: 'rgba(255, 255, 255, 0.02)',
+          border: '1px dashed rgba(255, 255, 255, 0.12)',
           borderRadius: '12px',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-          overflow: 'hidden',
+          padding: '8px',
+          flexShrink: 0,
+          marginTop: '3rem',
           ...style,
         }}
       >
@@ -87,12 +82,11 @@ const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotI
         <ins
           ref={adRef}
           className="adsbygoogle"
-          style={{ display: 'block', width: '160px', height: '600px' }}
+          style={{ display: 'block', width: '160px', minHeight: '600px' }}
           data-ad-client={PUBLISHER_ID}
           data-ad-slot={adSlotCode || '4087835658'}
           data-ad-format="vertical"
         />
-        <div style={{ fontSize: '0.55rem', opacity: 0.3, marginTop: '4px' }}>160×600 Skyscraper</div>
       </div>
     );
   }

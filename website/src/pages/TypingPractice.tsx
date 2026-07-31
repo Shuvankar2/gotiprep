@@ -529,13 +529,12 @@ const TypingPractice: React.FC = () => {
         path="/typing"
       />
 
-      {/* Desktop Vertical Skyscraper Gutter Ads */}
-      <AdSlot type="vertical-left" />
-      <AdSlot type="vertical-right" />
-
       {/* Mobile Sticky Bottom Bar Ad */}
       <AdSlot type="mobile-sticky" />
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+
+      <div className="layout-with-side-ads">
+        <AdSlot type="vertical-left" />
+        <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
 
         {/* Page header */}
         <div style={{ marginBottom: '2.5rem' }}>
@@ -1066,6 +1065,8 @@ const TypingPractice: React.FC = () => {
           );
         })()}
 
+        </div>
+        <AdSlot type="vertical-right" />
       </div>
     </div>
   );

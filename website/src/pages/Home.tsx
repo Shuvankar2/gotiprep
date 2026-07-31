@@ -302,10 +302,6 @@ const Home: React.FC = () => {
         path="/"
       />
 
-      {/* Desktop Vertical Skyscraper Gutter Ads */}
-      <AdSlot type="vertical-left" />
-      <AdSlot type="vertical-right" />
-
       {/* Mobile Sticky Bottom Bar Ad */}
       <AdSlot type="mobile-sticky" />
 

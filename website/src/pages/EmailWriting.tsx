@@ -90,13 +90,12 @@ const EmailWriting: React.FC = () => {
         path="/email"
       />
 
-      {/* Desktop Vertical Skyscraper Gutter Ads */}
-      <AdSlot type="vertical-left" />
-      <AdSlot type="vertical-right" />
-
       {/* Mobile Sticky Bottom Bar Ad */}
       <AdSlot type="mobile-sticky" />
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+
+      <div className="layout-with-side-ads">
+        <AdSlot type="vertical-left" />
+        <div className="layout-main-content" style={{ padding: '3rem 1.5rem' }}>
 
         {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
@@ -416,6 +415,8 @@ const EmailWriting: React.FC = () => {
           </div>
         )}
 
+        </div>
+        <AdSlot type="vertical-right" />
       </div>
     </div>
   );

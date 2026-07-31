@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAdminStore } from '../store/adminStore';
 import { Clock, Send, ChevronLeft, ChevronRight, Shuffle } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
+import SEO from '../components/SEO';
 
 type SessionState = 'select' | 'writing' | 'result';
 
@@ -82,6 +83,12 @@ const EmailWriting: React.FC = () => {
 
   return (
     <div className="page-container">
+      <SEO
+        title="TCS NQT Email Writing Practice Online (9-Min Timer) | GotiPrep"
+        description="Timed professional email drafting simulator for TCS NQT and corporate assessment rounds. Includes 9-minute countdown timer, key point checklist & minimum word count verification."
+        keywords="TCS NQT email writing practice, TCS email writing simulator online free, corporate email drafting test, timed email practice, GotiPrep"
+        path="/email"
+      />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

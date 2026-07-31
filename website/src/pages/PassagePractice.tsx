@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAdminStore } from '../store/adminStore';
 import { ChevronLeft, ChevronRight, Shuffle, Clock, Eye, EyeOff, BookOpen, Edit3 } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
+import SEO from '../components/SEO';
 
 const PAGE_SIZE = 10;
 const READ_TIME_SEC = 30;
@@ -349,6 +350,12 @@ const PassagePractice: React.FC = () => {
 
   return (
     <div className="page-container">
+      <SEO
+        title="Unseen Passage Practice & 2-Mark MCQs — SSC CGL, IBPS PO | GotiPrep"
+        description="Practice unseen passages with 30s reading and 90s context writing tests, plus 2-Mark assessment MCQs for IBPS PO, RBI Grade B, and SSC CGL."
+        keywords="IBPS PO unseen passage practice, SSC CGL reading comprehension MCQs, 2-mark assessment questions, passage practice online, GotiPrep"
+        path="/passage"
+      />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAdminStore } from '../store/adminStore';
 import { RotateCcw, Play, Copy, Check, Download, Share2, User } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
+import SEO from '../components/SEO';
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 type TestMode  = 'practice' | 'exam' | 'certification';
@@ -521,6 +522,12 @@ const TypingPractice: React.FC = () => {
   // ────────────────────────────────────────────────────────────────────────────
   return (
     <div className="page-container">
+      <SEO
+        title="Free Online Typing Test Practice — TCS NQT, SSC CHSL, IBPS | GotiPrep"
+        description="Practice exam-grade typing speed & accuracy online. Simulated TCS NQT, SSC CGL/CHSL, and Banking typing test environment with net/gross WPM calculations & anti-cheat."
+        keywords="SSC CHSL typing test practice online free, TCS NQT typing test, IBPS typing speed test, net WPM calculator, typing arena, GotiPrep"
+        path="/typing"
+      />
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Page header */}

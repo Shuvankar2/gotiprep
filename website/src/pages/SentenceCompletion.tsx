@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAdminStore } from '../store/adminStore';
 import { CheckCircle, XCircle, RotateCcw, ChevronRight, ArrowRight } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
+import SEO from '../components/SEO';
 
 type SessionState = 'intro' | 'practice' | 'result';
 
@@ -61,6 +62,12 @@ const SentenceCompletion: React.FC = () => {
 
   return (
     <div className="page-container">
+      <SEO
+        title="Sentence Completion & Cloze Test Practice — Banking, SSC | GotiPrep"
+        description="Practice sentence cloze and fill-in-the-blanks grammar & vocabulary exercises tailored for IBPS PO, SBI Clerk, and SSC CGL exams with instant feedback."
+        keywords="sentence completion practice, cloze test practice online free, IBPS PO cloze test, SSC CGL English vocabulary, GotiPrep"
+        path="/sentences"
+      />
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3rem 1.5rem' }}>
 
         {/* Header */}

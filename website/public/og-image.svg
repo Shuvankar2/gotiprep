@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <!-- Dark Modern Cyber Backdrop -->
+  <rect width="1200" height="630" fill="#0b0914"/>
+  <rect width="1200" height="630" fill="url(#bg_grad)"/>
+  
+  <!-- Subtle Neon Background Circles -->
+  <circle cx="150" cy="120" r="300" fill="#0054fa" opacity="0.18" filter="blur(90px)"/>
+  <circle cx="1050" cy="510" r="280" fill="#b06fd6" opacity="0.18" filter="blur(90px)"/>
+  <circle cx="600" cy="315" r="200" fill="#ED9E59" opacity="0.1" filter="blur(80px)"/>
+
+  <!-- Card Border Container -->
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="rgba(15,12,35,0.7)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Brand Title -->
+  <text x="90" y="150" font-family="'Space Grotesk', system-ui, sans-serif" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="4">
+    GOTI<tspan fill="#0054fa">PREP</tspan>
+  </text>
+  
+  <text x="90" y="205" font-family="'Inter', system-ui, sans-serif" font-size="28" font-weight="700" fill="#b06fd6" letter-spacing="1">
+    Fast-Track Your Exam Preparation
+  </text>
+
+  <text x="90" y="260" font-family="'Inter', system-ui, sans-serif" font-size="20" font-weight="400" fill="#a0a0b8">
+    Assessment-Grade Prep for TCS NQT, Banking (IBPS, RBI), SSC CGL/CHSL &amp; Typing Tests
+  </text>
+
+  <!-- Module Badges Box -->
+  <g transform="translate(90, 310)">
+    <!-- Badge 1: Typing Arena -->
+    <rect x="0" y="0" width="230" height="52" rx="12" fill="rgba(0,84,250,0.15)" stroke="rgba(0,84,250,0.4)" stroke-width="1.5"/>
+    <text x="24" y="32" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#60a5fa">⚡ Typing Arena</text>
+
+    <!-- Badge 2: Unseen Passage -->
+    <rect x="250" y="0" width="250" height="52" rx="12" fill="rgba(176,111,214,0.15)" stroke="rgba(176,111,214,0.4)" stroke-width="1.5"/>
+    <text x="274" y="32" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#c084fc">📚 Unseen Passage</text>
+
+    <!-- Badge 3: Sentence Cloze -->
+    <rect x="520" y="0" width="240" height="52" rx="12" fill="rgba(237,158,89,0.15)" stroke="rgba(237,158,89,0.4)" stroke-width="1.5"/>
+    <text x="544" y="32" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#fbbf24">🎯 Sentence Cloze</text>
+
+    <!-- Badge 4: Email Simulator -->
+    <rect x="780" y="0" width="240" height="52" rx="12" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.4)" stroke-width="1.5"/>
+    <text x="804" y="32" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#34d399">✉️ Email Simulator</text>
+  </g>
+
+  <!-- Exam Targets Row -->
+  <g transform="translate(90, 400)">
+    <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#8080a0">EXAM TARGETS:</text>
+    <rect x="140" y="4" width="110" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="162" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">TCS NQT</text>
+
+    <rect x="260" y="4" width="140" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="278" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">IBPS / RBI PO</text>
+
+    <rect x="410" y="4" width="140" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="428" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">SSC CGL / CHSL</text>
+  </g>
+
+  <!-- Footer Info Line -->
+  <line x1="90" y1="480" x2="1110" y2="480" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <g transform="translate(90, 520)">
+    <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="600" fill="#0054fa">https://gotiprep.shuvankar.qzz.io</text>
+    <text x="1020" y="0" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#a0a0b8" text-anchor="end">By Shuvankar Debnath (SUVNKR)</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg_grad" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b0914"/>
+      <stop offset="0.5" stop-color="#120c24"/>
+      <stop offset="1" stop-color="#0b0914"/>
+    </linearGradient>
+  </defs>
+</svg>

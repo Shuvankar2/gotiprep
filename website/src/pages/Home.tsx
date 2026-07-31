@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import SEO from '../components/SEO';
 
 // ─── RAF Lerp 3D Tilt Hook ─────────────────────────────────────────────────────
 function useSmoothTilt(maxDeg = 8, perspective = 1000) {
@@ -293,6 +294,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="page-container landing-page" style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+      <SEO
+        title="GotiPrep — Fast-Track Exam Preparation | TCS NQT, Banking, SSC"
+        description="Assessment-grade exam preparation platform for TCS NQT, Banking (IBPS/RBI), SSC CGL/CHSL, and Typing Tests. Free, open-source & real-time analytics."
+        keywords="typing practice, TCS NQT, IBPS PO, SSC CGL typing test, SSC CHSL typing test, email writing practice, unseen passage practice, sentence completion, WPM test, GotiPrep, SUVNKR"
+        path="/"
+      />
 
       {/* ── SECTION A: FULL-WIDTH 3D COVERFLOW HERO ─── */}
       <section style={{

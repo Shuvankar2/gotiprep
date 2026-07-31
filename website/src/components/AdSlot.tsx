@@ -60,7 +60,7 @@ const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotI
         className="adsbygoogle"
         style={{ display: 'block', width: '100%', minHeight: dim.height }}
         data-ad-client={PUBLISHER_ID}
-        data-ad-slot={adSlotCode || '1234567890'}
+        data-ad-slot={adSlotCode || '4087835658'}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />

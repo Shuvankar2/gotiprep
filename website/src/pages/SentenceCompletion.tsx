@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RotateCcw, CheckCircle2, XCircle, ArrowRight, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 import AdSlot from '../components/AdSlot';
-import { sentenceItems, SentenceItem } from '../data/sentences';
+import { sentenceItems, type SentenceItem } from '../data/sentences';
 
 type SessionState = 'intro' | 'practice' | 'result';
 
@@ -108,7 +108,9 @@ const SentenceCompletion: React.FC = () => {
                 <h4 style={{ fontWeight: 700, marginBottom: '12px', color: 'var(--goti-amber)' }}>Session Details</h4>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: 'var(--goti-amber)' }}>10</div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 700, color: 'var(--goti-amber)' }}>
+                      {Math.min(10, (category === 'all' ? sentenceItems : sentenceItems.filter((s) => s.category === category)).length)}
+                    </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Questions</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
@@ -165,7 +167,7 @@ const SentenceCompletion: React.FC = () => {
             {/* Question Card */}
             <div className="card-glow" style={{ padding: '2rem' }}>
               <div style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                {currentItem.sentence.split('___').map((part, i, arr) => (
+                {currentItem.sentence.split(/_{2,}/).map((part, i, arr) => (
                   <React.Fragment key={i}>
                     {part}
                     {i < arr.length - 1 && (
@@ -174,7 +176,7 @@ const SentenceCompletion: React.FC = () => {
                         minWidth: '90px', padding: '0 8px', textAlign: 'center',
                         fontWeight: 700, color: 'var(--goti-amber)', margin: '0 4px',
                       }}>
-                        {currentInput || '___'}
+                        {currentInput || '_____'}
                       </span>
                     )}
                   </React.Fragment>
@@ -232,7 +234,7 @@ const SentenceCompletion: React.FC = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {sessionItems.map((item, idx) => {
                     const userAns = userAnswers[idx] || '';
-                    const isCorrect = userAns.toLowerCase() === item.correctWord.toLowerCase();
+                    const isCorrect = userAns.toLowerCase() === item.blank.toLowerCase();
                     return (
                       <div key={item.id} style={{
                         padding: '1rem', borderRadius: '10px',
@@ -242,7 +244,7 @@ const SentenceCompletion: React.FC = () => {
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '6px' }}>
                           {isCorrect ? <CheckCircle2 size={18} style={{ color: '#34d399', flexShrink: 0, marginTop: '2px' }} /> : <XCircle size={18} style={{ color: '#f43f5e', flexShrink: 0, marginTop: '2px' }} />}
                           <div>
-                            <div style={{ fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '4px' }}>{item.sentence.replace('___', `[${item.blank}]`)}</div>
+                            <div style={{ fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '4px' }}>{item.sentence.replace(/_{2,}/, `[${item.blank}]`)}</div>
                             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                               Your answer: <span style={{ color: isCorrect ? '#34d399' : '#f43f5e', fontWeight: 600 }}>{userAns || '(blank)'}</span>
                               {!isCorrect && <span> | Correct: <span style={{ color: '#34d399', fontWeight: 600 }}>{item.blank}</span></span>}

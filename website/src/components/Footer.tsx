@@ -46,7 +46,6 @@ const Footer: React.FC = () => {
                 { label: 'UNSEEN PASSAGE', to: '/passage' },
                 { label: 'SENTENCE CLOZE', to: '/sentences' },
                 { label: 'EMAIL DRAFTING', to: '/email' },
-                { label: 'DASHBOARD', to: '/dashboard' },
               ].map(item => (
                 <Link key={item.to} to={item.to} style={{
                   fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
@@ -101,7 +100,6 @@ const Footer: React.FC = () => {
                 { label: 'OPEN SOURCE', href: 'https://github.com', external: true },
                 { label: 'THE BLUEPRINT', href: '#' },
                 { label: 'BRAND KIT', href: '#' },
-                { label: 'ADMIN LOGIN', href: '/admin', internal: true },
               ].map(item => (
                 item.internal ? (
                   <Link key={item.label} to={item.href!} style={{

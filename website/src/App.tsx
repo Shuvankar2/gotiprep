@@ -9,23 +9,14 @@ import TypingPractice from './pages/TypingPractice';
 import PassagePractice from './pages/PassagePractice';
 import SentenceCompletion from './pages/SentenceCompletion';
 import EmailWriting from './pages/EmailWriting';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import Admin from './pages/Admin';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const THEME_KEY = 'gotiprep-theme';
 
-// Pages that shouldn't show the main Navbar/Footer (full-screen layouts)
-const STANDALONE_ROUTES = ['/login', '/register', '/admin'];
-
 function App() {
   const [theme, setTheme] = useState<string>(() => localStorage.getItem(THEME_KEY) || 'light');
   const location = useLocation();
-
-  const isStandalone = STANDALONE_ROUTES.some((r) => location.pathname.startsWith(r));
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -41,7 +32,7 @@ function App() {
 
   return (
     <>
-      {!isStandalone && <Navbar theme={theme} onToggleTheme={toggleTheme} />}
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -49,10 +40,6 @@ function App() {
         <Route path="/passage" element={<PassagePractice />} />
         <Route path="/sentences" element={<SentenceCompletion />} />
         <Route path="/email" element={<EmailWriting />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         {/* 404 fallback */}
@@ -66,7 +53,7 @@ function App() {
         } />
       </Routes>
 
-      {!isStandalone && <Footer />}
+      <Footer />
     </>
   );
 }

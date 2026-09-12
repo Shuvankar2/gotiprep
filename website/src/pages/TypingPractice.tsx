@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useAdminStore } from '../store/adminStore';
-import { RotateCcw, Play, Copy, Check, Download, Share2, User } from 'lucide-react';
+import { typingPassages } from '../data/typingPassages';
+import { RotateCcw, Play, Copy, Check, Download, Share2 } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 import SEO from '../components/SEO';
 
@@ -213,8 +213,6 @@ function AchievementCard({ result, userName }: { result: ResultData; userName: s
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 const TypingPractice: React.FC = () => {
-  const { typingPassages } = useAdminStore();
-
   // Setup state
   const [mode,         setMode]         = useState<TestMode>('practice');
   const [duration,     setDuration]     = useState(5);

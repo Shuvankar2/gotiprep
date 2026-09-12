@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Sun, Moon, Menu, X } from 'lucide-react';
-import { useAuthStore } from '../store/authStore';
 
 interface NavbarProps {
   theme: string;
@@ -13,8 +12,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
 
-  const { user, isAuthenticated, logout } = useAuthStore();
-  const navigate = useNavigate();
   const location = useLocation();
   const isLanding = location.pathname === '/';
 
@@ -68,12 +65,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
       if (scrollEndTimeout) clearTimeout(scrollEndTimeout);
     };
   }, [location.pathname, isLanding]);
-
-  const handleLogout = () => {
-    logout();
-    setMenuOpen(false);
-    navigate('/');
-  };
 
   const navLinks = [
     { to: '/', label: 'HOME' },
@@ -172,57 +163,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
               {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
 
-            {/* Auth — Desktop */}
-            <div className="nav-auth-desktop">
-              {isAuthenticated && user ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-                    letterSpacing: '0.08em', textTransform: 'uppercase',
-                    color: 'var(--text-muted)',
-                  }}>
-                    {user.name.split(' ')[0]}
-                  </span>
-                  <button
-                    onClick={handleLogout}
-                    style={{
-                      fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                      textTransform: 'uppercase', letterSpacing: '0.1em',
-                      padding: '8px 16px',
-                      border: '1px solid var(--border-color)',
-                      background: 'transparent', color: 'var(--text-primary)',
-                      cursor: 'pointer', borderRadius: '4px', transition: 'all 0.2s ease',
-                    }}
-                  >
-                    LOGOUT
-                  </button>
-                </div>
-              ) : (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <Link to="/login" style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                    textTransform: 'uppercase', letterSpacing: '0.1em',
-                    padding: '8px 16px',
-                    border: '1px solid var(--border-color)',
-                    background: 'transparent', color: 'var(--text-primary)',
-                    textDecoration: 'none', borderRadius: '4px', transition: 'all 0.2s ease',
-                  }}>
-                    LOG IN
-                  </Link>
-                  <Link to="/register" style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                    textTransform: 'uppercase', letterSpacing: '0.1em',
-                    padding: '8px 16px',
-                    background: 'var(--text-primary)', color: 'var(--bg-primary)',
-                    border: 'none', borderRadius: '4px', textDecoration: 'none',
-                    transition: 'all 0.2s ease',
-                  }}>
-                    GET STARTED
-                  </Link>
-                </div>
-              )}
-            </div>
-
             {/* Mobile burger button */}
             <button
               className="menu-toggle-btn"
@@ -276,39 +216,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
               {link.label}
             </NavLink>
           ))}
-          <div style={{ display: 'flex', gap: '10px', marginTop: '1rem' }}>
-            {isAuthenticated && user ? (
-              <button onClick={handleLogout} style={{
-                flex: 1, fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                textTransform: 'uppercase', letterSpacing: '0.1em',
-                padding: '12px', border: '1px solid var(--border-color)',
-                background: 'transparent', color: 'var(--text-primary)', cursor: 'pointer', borderRadius: '4px',
-              }}>
-                LOGOUT
-              </button>
-            ) : (
-              <>
-                <Link to="/login" onClick={() => setMenuOpen(false)} style={{
-                  flex: 1, textAlign: 'center',
-                  fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                  textTransform: 'uppercase', letterSpacing: '0.1em',
-                  padding: '12px', border: '1px solid var(--border-color)',
-                  background: 'transparent', color: 'var(--text-primary)', textDecoration: 'none', borderRadius: '4px',
-                }}>
-                  LOG IN
-                </Link>
-                <Link to="/register" onClick={() => setMenuOpen(false)} style={{
-                  flex: 1, textAlign: 'center',
-                  fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700,
-                  textTransform: 'uppercase', letterSpacing: '0.1em',
-                  padding: '12px', background: 'var(--text-primary)', color: 'var(--bg-primary)',
-                  textDecoration: 'none', borderRadius: '4px', border: 'none',
-                }}>
-                  GET STARTED
-                </Link>
-              </>
-            )}
-          </div>
         </div>
       </header>
 
@@ -316,7 +223,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onToggleTheme }) => {
       <style>{`
         @media (max-width: 768px) {
           .nav-links-desktop { display: none !important; }
-          .nav-auth-desktop { display: none !important; }
           .menu-toggle-btn { display: flex !important; }
         }
       `}</style>

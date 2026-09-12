@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useAdminStore } from '../store/adminStore';
+import { emailPrompts } from '../data/emailPrompts';
 import { Clock, Send, ChevronLeft, ChevronRight, Shuffle } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 import SEO from '../components/SEO';
@@ -10,7 +10,6 @@ const DEFAULT_DURATION = 9 * 60; // 9 minutes
 const PAGE_SIZE = 10;
 
 const EmailWriting: React.FC = () => {
-  const { emailPrompts } = useAdminStore();
   const [category, setCategory] = useState<string>('all');
   const [selectedPrompt, setSelectedPrompt] = useState(emailPrompts[0]);
   const [sessionState, setSessionState] = useState<SessionState>('select');

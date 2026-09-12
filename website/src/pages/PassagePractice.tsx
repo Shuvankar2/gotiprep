@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useAdminStore } from '../store/adminStore';
+import { passages } from '../data/passages';
 import { ChevronLeft, ChevronRight, Shuffle, Clock, Eye, EyeOff, BookOpen, Edit3 } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 import SEO from '../components/SEO';
@@ -175,7 +175,6 @@ const extractKeywords = (text: string): string[] => {
 };
 
 const PassagePractice: React.FC = () => {
-  const { passages } = useAdminStore();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
   const [currentPassage, setCurrentPassage] = useState(passages[0]);

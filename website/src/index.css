@@ -64,8 +64,8 @@
 /* ─── Light Theme (#F8EEEE Soft Clean Blush Background) ──────────────────────── */
 [data-theme="light"] {
   --bg-primary:    #F8EEEE;
-  --bg-secondary:  #EFE2E2;
-  --bg-card:       rgba(255, 255, 255, 0.94);
+  --bg-secondary:  #F5EAEA;
+  --bg-card:       rgba(255, 255, 255, 0.97);
   --bg-card-hover: rgba(0, 84, 250, 0.06);
   --bg-glass:      rgba(248, 238, 238, 0.92);
   --border-color:  rgba(26, 13, 20, 0.14);
@@ -75,7 +75,7 @@
   --text-muted:    rgba(26, 13, 20, 0.6);
   --text-accent:   #0044cc;
   --nav-bg:        rgba(248, 238, 238, 0.92);
-  --footer-bg:     #EFE2E2;
+  --footer-bg:     #F7F0F0;
   --input-bg:      #FFFFFF;
   --input-border:  rgba(26, 13, 20, 0.18);
   --input-focus:   #0054fa;

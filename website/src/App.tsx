@@ -11,6 +11,8 @@ import SentenceCompletion from './pages/SentenceCompletion';
 import EmailWriting from './pages/EmailWriting';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Sitemap from './pages/Sitemap';
+import AboutGotiPrep from './pages/AboutGotiPrep';
 
 const THEME_KEY = 'gotiprep-theme';
 
@@ -42,6 +44,8 @@ function App() {
         <Route path="/email" element={<EmailWriting />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/sitemap" element={<Sitemap />} />
+        <Route path="/about" element={<AboutGotiPrep />} />
         {/* 404 fallback */}
         <Route path="*" element={
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', flexDirection: 'column', gap: '1rem', textAlign: 'center', padding: '2rem' }}>

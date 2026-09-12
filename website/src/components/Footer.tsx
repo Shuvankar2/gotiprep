@@ -97,9 +97,9 @@ const Footer: React.FC = () => {
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {[
-                { label: 'OPEN SOURCE', href: 'https://github.com', external: true },
-                { label: 'THE BLUEPRINT', href: '#' },
-                { label: 'BRAND KIT', href: '#' },
+                { label: 'OPEN SOURCE', href: 'https://github.com/Shuvankar2/gotiprep', external: true },
+                { label: 'SITEMAP', href: '/sitemap', internal: true },
+                { label: 'ABOUT GOTIPREP', href: '/about', internal: true },
               ].map(item => (
                 item.internal ? (
                   <Link key={item.label} to={item.href!} style={{

@@ -219,18 +219,8 @@ const AboutGotiPrep: React.FC = () => {
               <div style={{
                 fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 800,
                 color: 'var(--text-primary)', letterSpacing: '-0.01em',
-                display: 'flex', alignItems: 'center', gap: '8px',
               }}>
                 Shuvankar Debnath
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-                  fontWeight: 700, letterSpacing: '0.06em',
-                  color: 'var(--text-muted)',
-                  border: '1px solid var(--border-color)',
-                  padding: '2px 6px', borderRadius: '4px',
-                }}>
-                  SUVNKR
-                </span>
               </div>
               <div style={{ display: 'flex', gap: '12px', marginTop: '6px', flexWrap: 'wrap' }}>
                 <a

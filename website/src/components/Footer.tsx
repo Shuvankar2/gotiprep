@@ -190,29 +190,27 @@ const Footer: React.FC = () => {
               href="https://shuvankar.qzz.io"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="SUVNKR"
               title="SUVNKR"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
                 textDecoration: 'none',
-                color: 'inherit',
-                transition: 'opacity 0.2s ease',
+                transition: 'opacity 0.2s ease, transform 0.2s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.opacity = '0.8'; }}
-              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+              onMouseEnter={e => { e.currentTarget.style.opacity = '0.8'; e.currentTarget.style.transform = 'scale(1.1)'; }}
+              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1)'; }}
             >
               <img
                 src="/Logo-Color3D.svg"
-                alt="SUVNKR Logo"
+                alt="SUVNKR"
                 style={{
                   height: '20px',
                   width: '20px',
                   objectFit: 'contain',
-                  verticalAlign: 'middle',
+                  display: 'block',
                 }}
               />
-              <span style={{ fontWeight: 700, letterSpacing: '0.1em' }}>SUVNKR</span>
             </a>
             <span>· GOTIPREP</span>
           </div>

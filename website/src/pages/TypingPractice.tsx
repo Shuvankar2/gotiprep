@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { typingPassages } from '../data/typingPassages';
-import { RotateCcw, Play, Copy, Check, Download, Share2 } from 'lucide-react';
+import { RotateCcw, Play, Copy, Check, Download, Share2, User } from 'lucide-react';
 import AdSlot from '../components/AdSlot';
 import SEO from '../components/SEO';
 

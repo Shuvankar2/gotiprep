@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github, Zap, Users, BookOpen, Target, Heart } from 'lucide-react';
+import { ExternalLink, Github, Zap, BookOpen, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AdSlot from '../components/AdSlot';
@@ -196,13 +196,41 @@ const AboutGotiPrep: React.FC = () => {
           }}>
             BUILT BY
           </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <a href="https://shuvankar.qzz.io" target="_blank" rel="noopener noreferrer" title="SUVNKR Portfolio" style={{ display: 'flex' }}>
+              <img
+                src="/Logo-Color3D.svg"
+                alt="SUVNKR Logo"
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '12px',
+                  objectFit: 'contain',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-secondary)',
+                  padding: '4px',
+                  transition: 'transform 0.2s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}
+              />
+            </a>
             <div>
               <div style={{
                 fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 800,
                 color: 'var(--text-primary)', letterSpacing: '-0.01em',
+                display: 'flex', alignItems: 'center', gap: '8px',
               }}>
                 Shuvankar Debnath
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+                  fontWeight: 700, letterSpacing: '0.06em',
+                  color: 'var(--text-muted)',
+                  border: '1px solid var(--border-color)',
+                  padding: '2px 6px', borderRadius: '4px',
+                }}>
+                  SUVNKR
+                </span>
               </div>
               <div style={{ display: 'flex', gap: '12px', marginTop: '6px', flexWrap: 'wrap' }}>
                 <a
@@ -230,6 +258,19 @@ const AboutGotiPrep: React.FC = () => {
                   }}
                 >
                   GitHub <ExternalLink size={10} />
+                </a>
+                <a
+                  href="https://x.com/suvnkrr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600,
+                    textTransform: 'uppercase', letterSpacing: '0.08em',
+                    color: 'var(--text-muted)', textDecoration: 'none',
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
+                  }}
+                >
+                  Twitter/X <ExternalLink size={10} />
                 </a>
               </div>
             </div>

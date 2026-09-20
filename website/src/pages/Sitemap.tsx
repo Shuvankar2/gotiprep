@@ -53,6 +53,24 @@ const sections: SitemapSection[] = [
         external: true,
         description: 'Source code, issues, pull requests and contribution guidelines',
       },
+      {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/shuvankarrr/',
+        external: true,
+        description: 'Official announcements and community on Instagram',
+      },
+      {
+        label: 'Facebook',
+        href: 'https://www.facebook.com/suvnkrr',
+        external: true,
+        description: 'Community page and updates on Facebook',
+      },
+      {
+        label: 'Twitter / X',
+        href: 'https://x.com/suvnkrr',
+        external: true,
+        description: 'Latest news, release announcements, and discussions on X',
+      },
     ],
   },
 ];

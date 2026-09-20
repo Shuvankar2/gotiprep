@@ -70,17 +70,24 @@ const Footer: React.FC = () => {
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {[
-                { label: 'DISCORD', href: '#' },
-                { label: 'TWITTER / X', href: '#' },
-                { label: 'TELEGRAM', href: '#' },
+                { label: 'INSTAGRAM', href: 'https://www.instagram.com/shuvankarrr/' },
+                { label: 'FACEBOOK', href: 'https://www.facebook.com/suvnkrr' },
+                { label: 'TWITTER / X', href: 'https://x.com/suvnkrr' },
               ].map(item => (
-                <a key={item.label} href={item.href} style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
-                  letterSpacing: '0.08em', textTransform: 'uppercase',
-                  color: 'var(--text-muted)', textDecoration: 'none',
-                  transition: 'color 0.2s ease',
-                }}>
-                  {item.label}
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
+                    letterSpacing: '0.08em', textTransform: 'uppercase',
+                    color: 'var(--text-muted)', textDecoration: 'none',
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
+                    transition: 'color 0.2s ease',
+                  }}
+                >
+                  {item.label} <ExternalLink size={10} style={{ opacity: 0.5 }} />
                 </a>
               ))}
             </div>
@@ -170,13 +177,45 @@ const Footer: React.FC = () => {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '1rem',
         }}>
-          <span style={{
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
             fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
             textTransform: 'uppercase', letterSpacing: '0.08em',
             color: 'var(--text-muted)',
           }}>
-            © {year} SUVNKR · GOTIPREP
-          </span>
+            <span>© {year}</span>
+            <a
+              href="https://shuvankar.qzz.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="SUVNKR"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                textDecoration: 'none',
+                color: 'inherit',
+                transition: 'opacity 0.2s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.opacity = '0.8'; }}
+              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+            >
+              <img
+                src="/Logo-Color3D.svg"
+                alt="SUVNKR Logo"
+                style={{
+                  height: '20px',
+                  width: '20px',
+                  objectFit: 'contain',
+                  verticalAlign: 'middle',
+                }}
+              />
+              <span style={{ fontWeight: 700, letterSpacing: '0.1em' }}>SUVNKR</span>
+            </a>
+            <span>· GOTIPREP</span>
+          </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             <Link to="/terms" style={{

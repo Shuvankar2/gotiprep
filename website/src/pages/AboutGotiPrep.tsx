@@ -197,18 +197,19 @@ const AboutGotiPrep: React.FC = () => {
             BUILT BY
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="https://shuvankar.qzz.io" target="_blank" rel="noopener noreferrer" title="SUVNKR Portfolio" style={{ display: 'flex' }}>
+            <a href="https://shuvankar.qzz.io" target="_blank" rel="noopener noreferrer" title="SUVNKR Portfolio" style={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src="/Logo-Color3D.svg"
-                alt="SUVNKR Logo"
+                alt="SUVNKR"
+                className="suvnkr-logo"
                 style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '12px',
+                  height: '28px',
+                  width: 'auto',
+                  borderRadius: '6px',
                   objectFit: 'contain',
                   border: '1px solid var(--border-color)',
                   background: 'var(--bg-secondary)',
-                  padding: '4px',
+                  padding: '4px 10px',
                   transition: 'transform 0.2s ease',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}

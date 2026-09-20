@@ -207,6 +207,23 @@ h1, h2, h3, h4, h5, h6 {
   filter: drop-shadow(0 0 6px rgba(0, 84, 250, 0.3));
 }
 
+/* SUVNKR 3D Logo */
+.suvnkr-logo {
+  height: 14px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+[data-theme="dark"] .suvnkr-logo {
+  filter: invert(1) brightness(1.2) contrast(1.1) drop-shadow(0 0 4px rgba(0, 210, 255, 0.25));
+}
+
+[data-theme="light"] .suvnkr-logo {
+  filter: brightness(0.9) contrast(1.1);
+}
+
 /* Card Glows */
 .card-glow {
   background: var(--bg-card);

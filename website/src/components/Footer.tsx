@@ -204,11 +204,12 @@ const Footer: React.FC = () => {
               <img
                 src="/Logo-Color3D.svg"
                 alt="SUVNKR"
+                className="suvnkr-logo"
                 style={{
-                  height: '20px',
-                  width: '20px',
-                  objectFit: 'contain',
-                  display: 'block',
+                  height: '14px',
+                  width: 'auto',
+                  display: 'inline-block',
+                  verticalAlign: 'middle',
                 }}
               />
             </a>

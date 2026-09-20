@@ -206,7 +206,7 @@ const Footer: React.FC = () => {
                 alt="SUVNKR"
                 className="suvnkr-logo"
                 style={{
-                  height: '14px',
+                  height: '18px',
                   width: 'auto',
                   display: 'inline-block',
                   verticalAlign: 'middle',

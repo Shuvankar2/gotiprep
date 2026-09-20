@@ -203,13 +203,13 @@ const AboutGotiPrep: React.FC = () => {
                 alt="SUVNKR"
                 className="suvnkr-logo"
                 style={{
-                  height: '28px',
+                  height: '34px',
                   width: 'auto',
                   borderRadius: '6px',
                   objectFit: 'contain',
                   border: '1px solid var(--border-color)',
                   background: 'var(--bg-secondary)',
-                  padding: '4px 10px',
+                  padding: '5px 12px',
                   transition: 'transform 0.2s ease',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}

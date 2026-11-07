@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { initAnalytics, trackPageView } from './utils/analytics';
 
 // Pages
 import Home from './pages/Home';
@@ -25,10 +26,16 @@ function App() {
     localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
-  // Scroll to top on route change
+  // Initialize Google Analytics / GTM on mount
   useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  // Track pageviews & scroll to top on route change
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
 

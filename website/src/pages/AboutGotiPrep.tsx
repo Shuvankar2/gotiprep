@@ -35,10 +35,30 @@ const AboutGotiPrep: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="About GotiPrep — Your Free SSC & Exam Prep Platform"
-        description="GotiPrep is a free, open-source exam preparation platform offering Typing Arena, Unseen Passage, Sentence Cloze, and Email Drafting for SSC, CHSL, and banking aspirants."
+        title="About GotiPrep — Free Open-Source Exam Preparation Platform"
+        description="GotiPrep is an open-source assessment-grade examination preparation platform offering Typing Arena, Unseen Passage, Sentence Cloze, and Email Drafting for TCS NQT, SSC, and Banking exams."
         keywords="about GotiPrep, SSC exam prep, free typing practice, open source exam platform, GotiPrep story"
         path="/about"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About GotiPrep', path: '/about' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About GotiPrep',
+          description: 'Story, mission, and architecture of GotiPrep platform.',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'GotiPrep',
+            url: 'https://gotiprep.suvnkr.in',
+            founder: {
+              '@type': 'Person',
+              name: 'Shuvankar Debnath',
+              url: 'https://suvnkr.in',
+            },
+          },
+        }}
       />
 
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '3.5rem 1.5rem 5rem' }}>
@@ -197,7 +217,7 @@ const AboutGotiPrep: React.FC = () => {
             BUILT BY
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="https://shuvankar.qzz.io" target="_blank" rel="noopener noreferrer" title="SUVNKR Portfolio" style={{ display: 'flex', alignItems: 'center' }}>
+            <a href="https://suvnkr.in" target="_blank" rel="noopener noreferrer" title="SUVNKR Portfolio" style={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src="/Logo-Color3D.svg"
                 alt="SUVNKR"
@@ -225,7 +245,7 @@ const AboutGotiPrep: React.FC = () => {
               </div>
               <div style={{ display: 'flex', gap: '12px', marginTop: '6px', flexWrap: 'wrap' }}>
                 <a
-                  href="https://shuvankar.qzz.io"
+                  href="https://suvnkr.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

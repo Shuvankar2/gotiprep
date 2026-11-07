@@ -198,7 +198,7 @@ function AchievementCard({ result, userName }: { result: ResultData; userName: s
 
       {/* Footer */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', zIndex: 1 }}>
-        <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.25)' }}>gotiprep.shuvankar.qzz.io</div>
+        <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.25)' }}>gotiprep.suvnkr.in</div>
         <div style={{
           fontSize: '0.55rem', fontWeight: 700,
           background: `linear-gradient(90deg, ${pal.from}, ${pal.to})`,
@@ -474,7 +474,7 @@ const TypingPractice: React.FC = () => {
       userName.trim() ? `👤 By: ${userName.trim()}` : '',
       ``,
       `Preparing for TCS NQT, Banking & SSC typing tests.`,
-      `🔗 Practice free: gotiprep.shuvankar.qzz.io`,
+      `🔗 Practice free: gotiprep.suvnkr.in`,
       ``,
       `#GotiPrep #TypingTest #TCSNQT #BankingExam #SSCTyping #ExamPrep #GotiPrepChallenge`,
     ].filter(l => l !== null).join('\n');
@@ -506,8 +506,8 @@ const TypingPractice: React.FC = () => {
   // Share links
   const buildShareLinks = (r: ResultData) => {
     const name = userName.trim() ? ` by ${userName.trim()}` : '';
-    const text = encodeURIComponent(`🏆 I scored ${r.netWpm} Net WPM with ${r.accuracy}% accuracy${name} on GotiPrep! Try it: https://gotiprep.shuvankar.qzz.io #GotiPrep #TypingTest #TCSNQT`);
-    const url  = encodeURIComponent('https://gotiprep.shuvankar.qzz.io');
+    const text = encodeURIComponent(`🏆 I scored ${r.netWpm} Net WPM with ${r.accuracy}% accuracy${name} on GotiPrep! Try it: https://gotiprep.suvnkr.in #GotiPrep #TypingTest #TCSNQT`);
+    const url  = encodeURIComponent('https://gotiprep.suvnkr.in');
     return {
       whatsapp:  `https://wa.me/?text=${text}`,
       twitter:   `https://twitter.com/intent/tweet?text=${text}`,
@@ -521,10 +521,29 @@ const TypingPractice: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Free Online Typing Test Practice — TCS NQT, SSC CHSL, IBPS | GotiPrep"
+        title="Free Online Typing Test Practice — TCS NQT, SSC CHSL, IBPS"
         description="Practice exam-grade typing speed & accuracy online. Simulated TCS NQT, SSC CGL/CHSL, and Banking typing test environment with net/gross WPM calculations & anti-cheat."
         keywords="SSC CHSL typing test practice online free, TCS NQT typing test, IBPS typing speed test, net WPM calculator, typing arena, GotiPrep"
         path="/typing"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Typing Arena', path: '/typing' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          name: 'GotiPrep Typing Arena',
+          description: 'Exam-grade typing simulation and speed assessment test for TCS NQT, Banking, and SSC exams.',
+          learningResourceType: 'Practice Test',
+          educationalLevel: 'Competitive Exam Assessment',
+          isAccessibleForFree: true,
+          inLanguage: 'en',
+          provider: {
+            '@type': 'Organization',
+            name: 'GotiPrep',
+            url: 'https://gotiprep.suvnkr.in',
+          },
+        }}
       />
 
       {/* Mobile Sticky Bottom Bar Ad */}

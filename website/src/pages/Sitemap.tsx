@@ -79,10 +79,14 @@ const Sitemap: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Sitemap — GotiPrep"
-        description="Full sitemap of GotiPrep: browse every page including Practice Modules, Legal pages, and Community resources."
+        title="Sitemap — Full Directory & Navigation"
+        description="Full sitemap of GotiPrep: browse every practice module, legal policies, community resources, and exam guides."
         keywords="GotiPrep sitemap, all pages, navigation, site structure"
         path="/sitemap"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Sitemap', path: '/sitemap' },
+        ]}
       />
 
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '3.5rem 1.5rem 5rem' }}>

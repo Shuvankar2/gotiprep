@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 
-Sitemap: https://gotiprep.shuvankar.qzz.io/sitemap.xml
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://gotiprep.suvnkr.in/sitemap.xml

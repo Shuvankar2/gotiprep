@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
           }}>
             <span>© {year}</span>
             <a
-              href="https://shuvankar.qzz.io"
+              href="https://suvnkr.in"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="SUVNKR"

@@ -350,10 +350,23 @@ const PassagePractice: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Unseen Passage Practice & 2-Mark MCQs — SSC CGL, IBPS PO | GotiPrep"
+        title="Unseen Passage Practice & 2-Mark MCQs — SSC CGL, IBPS PO"
         description="Practice unseen passages with 30s reading and 90s context writing tests, plus 2-Mark assessment MCQs for IBPS PO, RBI Grade B, and SSC CGL."
         keywords="IBPS PO unseen passage practice, SSC CGL reading comprehension MCQs, 2-mark assessment questions, passage practice online, GotiPrep"
         path="/passage"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Unseen Passage Practice', path: '/passage' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          name: 'Unseen Passage Practice & Assessment',
+          description: 'Timed reading and comprehension practice platform for banking and SSC aspirants.',
+          learningResourceType: 'Reading Comprehension Practice',
+          isAccessibleForFree: true,
+          inLanguage: 'en',
+        }}
       />
 
       {/* Mobile Sticky Bottom Bar Ad */}

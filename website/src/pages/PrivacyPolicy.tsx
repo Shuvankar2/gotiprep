@@ -6,10 +6,14 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Privacy Policy & Cookie Policy — GotiPrep"
+        title="Privacy Policy & Cookie Policy"
         description="GotiPrep Privacy Policy: Learn how we protect user privacy, store local progress, and comply with Google AdSense data & cookie regulations."
         keywords="privacy policy, GotiPrep privacy notice, cookie policy, Google AdSense privacy compliance"
         path="/privacy"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Privacy Policy', path: '/privacy' },
+        ]}
       />
 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3.5rem 1.5rem 5rem' }}>
@@ -35,7 +39,7 @@ const PrivacyPolicy: React.FC = () => {
               1. Overview & Data Privacy Commitment
             </h2>
             <p>
-              At <strong>GotiPrep</strong> (gotiprep.shuvankar.qzz.io), accessible from https://gotiprep.shuvankar.qzz.io, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by GotiPrep and how we use it.
+              At <strong>GotiPrep</strong> (gotiprep.suvnkr.in), accessible from https://gotiprep.suvnkr.in, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by GotiPrep and how we use it.
             </p>
           </section>
 
@@ -53,7 +57,7 @@ const PrivacyPolicy: React.FC = () => {
               3. Google AdSense & DoubleClick DART Cookies
             </h2>
             <p>
-              Google is a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to gotiprep.shuvankar.qzz.io and other sites on the internet.
+              Google is a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to gotiprep.suvnkr.in and other sites on the internet.
             </p>
             <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
@@ -85,7 +89,7 @@ const PrivacyPolicy: React.FC = () => {
               6. Contact Information
             </h2>
             <p>
-              If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us via our official repository or administrator portal at <a href="https://shuvankar.qzz.io/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>shuvankar.qzz.io</a>.
+              If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us via our official repository or administrator portal at <a href="https://suvnkr.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>suvnkr.in</a>.
             </p>
           </section>
 

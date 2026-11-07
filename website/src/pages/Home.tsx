@@ -300,6 +300,7 @@ const Home: React.FC = () => {
         description="Assessment-grade exam preparation platform for TCS NQT, Banking (IBPS/RBI), SSC CGL/CHSL, and Typing Tests. Free, open-source & real-time analytics."
         keywords="typing practice, TCS NQT, IBPS PO, SSC CGL typing test, SSC CHSL typing test, email writing practice, unseen passage practice, sentence completion, WPM test, GotiPrep, SUVNKR"
         path="/"
+        breadcrumbs={[{ name: 'Home', path: '/' }]}
       />
 
       {/* Mobile Sticky Bottom Bar Ad */}

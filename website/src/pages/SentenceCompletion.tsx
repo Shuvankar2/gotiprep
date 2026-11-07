@@ -57,10 +57,23 @@ const SentenceCompletion: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Sentence Completion & Cloze Test Practice — Banking, SSC | GotiPrep"
+        title="Sentence Completion & Cloze Test Practice — Banking, SSC"
         description="Practice sentence cloze and fill-in-the-blanks grammar & vocabulary exercises tailored for IBPS PO, SBI Clerk, and SSC CGL exams with instant feedback."
         keywords="sentence completion practice, cloze test practice online free, IBPS PO cloze test, SSC CGL English vocabulary, GotiPrep"
         path="/sentences"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Sentence Cloze', path: '/sentences' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          name: 'Sentence Completion & Cloze Test Practice',
+          description: 'Grammar and contextual cloze test module for competitive examinations.',
+          learningResourceType: 'Practice Exercise',
+          isAccessibleForFree: true,
+          inLanguage: 'en',
+        }}
       />
 
       {/* Mobile Sticky Bottom Bar Ad */}

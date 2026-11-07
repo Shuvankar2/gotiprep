@@ -6,10 +6,14 @@ const TermsOfService: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="Terms of Service — GotiPrep Exam Readiness Platform"
+        title="Terms of Service & Usage License"
         description="GotiPrep Terms of Service: Guidelines, user agreement, and platform policies for using our free assessment-grade examination preparation tools."
         keywords="terms of service, GotiPrep user agreement, terms and conditions, platform policy"
         path="/terms"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Terms of Service', path: '/terms' },
+        ]}
       />
 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3.5rem 1.5rem 5rem' }}>
@@ -35,7 +39,7 @@ const TermsOfService: React.FC = () => {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing and using <strong>GotiPrep</strong> (gotiprep.shuvankar.qzz.io), you agree to be bound by these Terms of Service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+              By accessing and using <strong>GotiPrep</strong> (gotiprep.suvnkr.in), you agree to be bound by these Terms of Service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
             </p>
           </section>
 

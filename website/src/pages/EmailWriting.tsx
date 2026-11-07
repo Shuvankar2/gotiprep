@@ -83,10 +83,23 @@ const EmailWriting: React.FC = () => {
   return (
     <div className="page-container">
       <SEO
-        title="TCS NQT Email Writing Practice Online (9-Min Timer) | GotiPrep"
+        title="TCS NQT Email Writing Practice Online (9-Min Timer)"
         description="Timed professional email drafting simulator for TCS NQT and corporate assessment rounds. Includes 9-minute countdown timer, key point checklist & minimum word count verification."
         keywords="TCS NQT email writing practice, TCS email writing simulator online free, corporate email drafting test, timed email practice, GotiPrep"
         path="/email"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Email Writing Simulator', path: '/email' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          name: 'TCS NQT Email Writing Simulator',
+          description: 'Official format 9-minute timed corporate email drafting simulator for TCS NQT examinations.',
+          learningResourceType: 'Simulation Assessment',
+          isAccessibleForFree: true,
+          inLanguage: 'en',
+        }}
       />
 
       {/* Mobile Sticky Bottom Bar Ad */}

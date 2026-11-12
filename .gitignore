@@ -37,3 +37,6 @@ website/dist/
 
 # Test coverage
 coverage/
+
+# Audit & Documentation exclusions
+documentations/ADSENSE_COMPLIANCE_AUDIT.md

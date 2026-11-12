@@ -8,11 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0054fa" />
     <meta name="author" content="Shuvankar Debnath (SUVNKR)" />
-    <!-- Google Tag Manager / Analytics -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PVP3933C"></script>
+    <!-- Google Consent Mode v2 (Default Denied until user consents or restores preference) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      try {
+        var savedConsent = localStorage.getItem('gotiprep_cookie_consent');
+        if (savedConsent === 'accepted') {
+          gtag('consent', 'default', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        } else {
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+          });
+        }
+      } catch (e) {
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
+      }
+    </script>
+    <!-- Google Tag Manager / Analytics -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PVP3933C"></script>
+    <script>
       gtag('js', new Date());
     </script>
     <!-- Google AdSense Verification & Auto Ads -->
@@ -70,11 +99,6 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "128"
         },
         "author": {
           "@type": "Person",

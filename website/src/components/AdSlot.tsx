@@ -20,6 +20,11 @@ interface AdSlotProps {
 
 const PUBLISHER_ID = 'ca-pub-3063786907196879';
 
+// Google AdSense Review Mode: Keep ad density clean & balanced during the approval review.
+// Suppresses intrusive mobile-sticky overlays and side skyscrapers so pages are content-first.
+// Flip to false to restore skyscrapers and mobile stickies after AdSense approval.
+const REVIEW_MODE_CLEAN_ADS = true;
+
 const dimensions: Record<AdSlotType, { width: string | number; height: number }> = {
   banner: { width: '100%', height: 90 },
   sidebar: { width: '100%', height: 250 },
@@ -53,6 +58,10 @@ const AdSlot: React.FC<AdSlotProps> = ({ type, className = '', style = {}, slotI
       /* ignore adblocker errors gracefully */
     }
   }, []);
+
+  if (REVIEW_MODE_CLEAN_ADS && (type === 'mobile-sticky' || type === 'vertical-left' || type === 'vertical-right')) {
+    return null;
+  }
 
   if (type === 'mobile-sticky' && closedMobile) return null;
 

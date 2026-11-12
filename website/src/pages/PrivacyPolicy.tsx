@@ -54,21 +54,37 @@ const PrivacyPolicy: React.FC = () => {
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              3. Google AdSense & DoubleClick DART Cookies
+              3. Google AdSense, DoubleClick DART Cookies & Third-Party Advertising
             </h2>
             <p>
-              Google is a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to gotiprep.suvnkr.in and other sites on the internet.
+              Google is a third-party vendor on our site. Google uses cookies, including DoubleClick DART cookies, to serve ads to our site visitors based upon their visit to gotiprep.suvnkr.in and other sites across the Internet.
             </p>
-            <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
-              <li>Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to GotiPrep and/or other sites on the Internet.</li>
-              <li>Users may opt-out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>Google Ad Settings</a> or <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>aboutads.info</a>.</li>
+            <ul style={{ paddingLeft: '1.5rem', marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.</li>
+              <li>Google's use of advertising cookies enables it and its partners to serve ads to users based on their visits to GotiPrep and/or other sites on the Internet.</li>
+              <li>To understand how Google manages and uses data in its advertising products, please review <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>Google Advertising Technologies Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>How Google uses information from sites or apps that use our services</a>.</li>
+              <li>You may opt-out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>Google Ad Settings</a> or <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>aboutads.info</a>.</li>
+              <li>For general details on Google's data protection practices, consult the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>Google Privacy Policy</a>.</li>
             </ul>
           </section>
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              4. Log Files
+              4. Cookie Consent Management & User Rights (GDPR & CCPA)
+            </h2>
+            <p>
+              GotiPrep respects your privacy rights and implements Google Consent Mode v2 in accordance with the European Economic Area (EEA), UK GDPR, ePrivacy Directive, and California Consumer Privacy Act (CCPA):
+            </p>
+            <ul style={{ paddingLeft: '1.5rem', marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <li><strong>Essential Cookies:</strong> Strictly necessary for remembering your local theme and examination preferences. These do not track personal identity.</li>
+              <li><strong>Analytics & Ad Cookies (Optional):</strong> Used to measure anonymized traffic patterns and deliver relevant Google ads. These cookies are only activated when you provide affirmative consent via our Cookie Consent banner.</li>
+              <li><strong>Managing Your Choice:</strong> You can reset or update your cookie preferences at any time by clearing your browser's local storage or cookies for <code>gotiprep.suvnkr.in</code>, which will re-trigger the consent selection.</li>
+            </ul>
+          </section>
+
+          <section style={{ marginBottom: '2rem' }}>
+            <h2 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>
+              5. Log Files
             </h2>
             <p>
               GotiPrep follows a standard procedure of using log files provided by host providers (Vercel). The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
@@ -77,7 +93,7 @@ const PrivacyPolicy: React.FC = () => {
 
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              5. Children's Privacy
+              6. Children's Privacy
             </h2>
             <p>
               Another part of our priority is adding protection for children while using the internet. GotiPrep does not knowingly collect any Personal Identifiable Information from children under the age of 13.
@@ -86,7 +102,7 @@ const PrivacyPolicy: React.FC = () => {
 
           <section style={{ marginBottom: '1rem' }}>
             <h2 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-              6. Contact Information
+              7. Contact Information
             </h2>
             <p>
               If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us via our official repository or administrator portal at <a href="https://suvnkr.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--goti-amber)' }}>suvnkr.in</a>.
